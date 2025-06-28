@@ -11,11 +11,12 @@ function clicked() {
   const select_year = document.getElementById("select_year");
   const select_month = document.getElementById("select_month");
   const select_day = document.getElementById("select_day");
+  const year = new Date().getFullYear();
   let i;
 
   function $set_year() {
     //年_生成
-    for (i = 1000; i < 2025; ++i) {
+    for (i = 2025; i >= 1000; --i) {
         let op = document.createElement('option')
         op.value = i;
         op.text = i;
