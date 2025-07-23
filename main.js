@@ -31,21 +31,21 @@
     while (children.length) {
       children[0].remove();
     }
-  }
 
-  // 日を生成（動的に変える）
-  if (select_year.value !== "" && select_month.value !== "") {
-    const last_day = new Date(
-      select_year.value,
-      select_month.value,
-      0
-    ).getDate();
+    // 日を生成（動的に変える）
+    if (select_year.value !== "" && select_month.value !== "") {
+      const last_day = new Date(
+        select_year.value,
+        select_month.value,
+        0
+      ).getDate();
 
-    for (i = 1; i <= last_day; ++i) {
-      let op = document.createElement("option");
-      op.value = i;
-      op.text = i;
-      select_day.appendChild(op);
+      for (i = 1; i <= last_day; ++i) {
+        let op = document.createElement("option");
+        op.value = i;
+        op.text = i;
+        select_day.appendChild(op);
+      }
     }
   }
 
