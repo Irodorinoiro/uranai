@@ -8,10 +8,21 @@
 
   function $set_year() {
     //年_生成
-    for (i = 2025; i >= 1000; --i) {
+    for (i = 2025; i >= 1900; --i) {
       let op = document.createElement("option");
       op.value = i;
       op.text = i;
+      select_year.appendChild(op);
+
+      
+      // 元号を追加
+      let label = `${year}`;
+      if (year === 2019){ 
+        label += "令和 元";
+      }
+      else if(year > 2019){
+        label += `令和${year - 2018}`
+      }
       select_year.appendChild(op);
     }
   }

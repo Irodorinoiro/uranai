@@ -2,3 +2,10 @@ body {
     font-family: 'Kaisei Decol', serif;
     font-size: 20px;
 }
+
+.select_form{
+    font-size: 20px;
+    padding: 8px; /*内側余白*/
+    border-color: blue;
+    border-radius: 5px; /*角丸*/
+}
