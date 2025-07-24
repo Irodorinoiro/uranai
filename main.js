@@ -11,17 +11,29 @@
     for (i = 2025; i >= 1900; --i) {
       let op = document.createElement("option");
       op.value = i;
-      //op.text = i;
       // 元号を追加
       let label = `${i}`;
-      if (i === 2019){ 
+      if (i === 2019) {
         label += " (令和元) ";
+      } else if (i > 2019) {
+        label += ` (令和${i - 2018}) `;
+      } else if (i === 1989) {
+        label += " (平成元) ";
+      } else if (i > 1989) {
+        label += ` (平成${i - 1988}) `;
+      } else if (i === 1926) {
+        label += " (昭和元) ";
+      } else if (i > 1926) {
+        label += ` (昭和${i - 1925}) `;
       }
-      else if(i > 2019){
-        label += ` (令和${i - 2018}) `
+      else if (i == 1912) {
+        label += " (大正元) ";
       }
-      else if (i === 1989){
-
+      else if (i > 1912) {
+        label += ` (大正${i - 1911}) `;
+      }
+      else{
+        label += ` (明治${i - 1867}) `;
       }
       op.textContent = label;
       select_year.appendChild(op);
@@ -30,7 +42,6 @@
   function $set_month() {
     //月_生成
     for (i = 1; i <= 12; ++i) {
-
       // <option></option>をつくる
       let op = document.createElement("option");
       // ユーザーがこの選択肢を選ぶと、送信されるもの

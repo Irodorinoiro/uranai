@@ -5,7 +5,7 @@ body {
 
 .select_form{
     font-size: 20px;
-    padding: 8px; /*内側余白*/
+    padding: 12px; /*内側余白*/
     border-color: blue;
     border-radius: 5px; /*角丸*/
 }
