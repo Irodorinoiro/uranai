@@ -3,7 +3,8 @@
   const select_year = document.getElementById("select_year");
   const select_month = document.getElementById("select_month");
   const select_day = document.getElementById("select_day");
-  const year = new Date().getFullYear();
+  const uranai_enter = document.getElementById("uranai_enter");
+  //const year = new Date().getFullYear();
   let i;
 
   function $set_year() {
@@ -75,6 +76,9 @@
         select_day.appendChild(op);
       }
     }
+  }
+
+  function $uranai_enter() {
   }
 
   // load時，年月変更時に実行する

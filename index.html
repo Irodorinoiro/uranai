@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="style.css">
-        <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&display=swap" rel="stylesheet">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>良いことだけ占い</title>
-    </head>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>良いことだけ占い</title>
+  </head>
 
-    <body>
-            <h1>良いことだけ占い</h1>
-            <p>
-                拝啓&emsp13; 
-                日常生活でストレスを抱えている皆様
-                <br>
-                <br>良いことだけ書いてある占い作りました．
-                <br>癒しの天使の占い結果を是非見てください！！
-            </p>
+  <body>
+    <h1>良いことだけ占い</h1>
+    <p>
+      拝啓&emsp13; 日常生活でストレスを抱えている皆様
+      <br />
+      <br />良いことだけ書いてある占い作りました．
+      <br />癒しの天使の占い結果を是非見てください！！
+    </p>
+    <div>
+        <p>あなたのニックネーム <span class="hissu">※必須</span></p>
+      <input class="select_form" type="text" name="name" id="write_name" />
+      <br /><br />
+      <p>あなたの生年月日 <span class="hissu">※必須</span></p>
+      <select class="select_form" name="year" id="select_year"></select>
+      年
+      <select class="select_form" name="month" id="select_month"></select>
+      月
+      <select class="select_form" name="day" id="select_day"></select>
+      日
+      <button type="button" class="select_form" name="enter" id="uranai_enter">占う</button>
+    </div>
 
-        <div>
-            <select class = "select_form" name="year" id="select_year"></select>  年
-            <select class = "select_form" name="month" id="select_month"></select>  月
-            <select class = "select_form" name="day" id="select_day"></select>  日
-        </div>
-        
-        <script type="text/javascript" src="main.js"></script>
-    </body>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
 </html>
