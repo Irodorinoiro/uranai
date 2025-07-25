@@ -76,8 +76,6 @@
   }
 
   function $uranai_enter() {
-    // 以下は, ページの読み込みが完了してから実行される
-
     // HTML内の特定の要素（タグ）を、その id 属性を使って取得する
     const button = document.getElementById("uranai_enter");
 
