@@ -76,26 +76,22 @@
   }
 
   function $uranai_enter() {
-    // document.addEventListener: HTML文書全体（= document）に対してイベントを設定する
-    document.addEventListener("DOMContentLoaded", function () {
-      // 以下は, ページの読み込みが完了してから実行される
+    // 以下は, ページの読み込みが完了してから実行される
 
-      // HTML内の特定の要素（タグ）を、その id 属性を使って取得する
-      const button = document.getElementById("uranai_enter");
+    // HTML内の特定の要素（タグ）を、その id 属性を使って取得する
+    const button = document.getElementById("uranai_enter");
 
-      button.addEventListener("click", function () {
-        // .value は、入力フォームに書かれている「現在の値（ユーザーが入力した文字など）」を取得・設定するためのプロパティ
-        // trim()は、文字列の前後の空白を取り除くメソッド
-        const name = document.getElementById("write_name").value.trim();
+    button.addEventListener("click", function () {
+      // .value は、入力フォームに書かれている「現在の値（ユーザーが入力した文字など）」を取得・設定するためのプロパティ
+      // trim()は、文字列の前後の空白を取り除くメソッド
+      const name = document.getElementById("write_name").value.trim();
 
-        if (name === ""){
-          // ポップアップにアラートを表示
-          alert("名前を入力してください");
-        }
-        else{
-          window.location.href = `result.html?name = ${encodeURIComponent(name)}`
-        }
-      });
+      if (name === "") {
+        // ポップアップにアラートを表示
+        alert("名前を入力してください");
+      } else {
+        window.location.href = `result.html?name = ${encodeURIComponent(name)}`;
+      }
     });
   }
 
