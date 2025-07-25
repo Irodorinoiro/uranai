@@ -90,7 +90,10 @@
 
         if (name === ""){
           // ポップアップにアラートを表示
-          alart("名前を入力してください");
+          alert("名前を入力してください");
+        }
+        else{
+          window.location.href = `result.html?name = ${encodeURIComponent(name)}`
         }
       });
     });
@@ -101,6 +104,7 @@
     $set_year();
     $set_month();
     $set_day();
+    $uranai_enter();
     select_year.addEventListener("change", $set_day);
     select_month.addEventListener("change", $set_day);
   };
