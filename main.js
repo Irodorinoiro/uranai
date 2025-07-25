@@ -4,7 +4,6 @@
   const select_month = document.getElementById("select_month");
   const select_day = document.getElementById("select_day");
   const uranai_enter = document.getElementById("uranai_enter");
-  //const year = new Date().getFullYear();
   let i;
 
   function $set_year() {
@@ -88,18 +87,18 @@
         // ポップアップにアラートを表示
         alert("名前を入力してください");
       } else {
-        window.location.href = `result.html?name = ${encodeURIComponent(name)}`;
+        window.location.href = `result.html?name=${encodeURIComponent(name)}`;
       }
     });
   }
 
-  // load時，年月変更時に実行する
-  window.onload = function () {
+  // ページの読み込み完了後に処理を始める
+  window.addEventListener("DOMContentLoaded", function () {
     $set_year();
     $set_month();
     $set_day();
     $uranai_enter();
     select_year.addEventListener("change", $set_day);
     select_month.addEventListener("change", $set_day);
-  };
+  });
 })();
