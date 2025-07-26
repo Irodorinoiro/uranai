@@ -1,18 +1,23 @@
 (function () {
   "use strict";
-  const name_output = document.getElementById("name_output");
+  const info_output = document.getElementById("info_output");
 
-  function $name_output() {
+  function $info_output() {
     // URLのパラメータを取得する関数
     const params = new URLSearchParams(window.location.search);
     // パラメータからnameを取得
     const name = params.get("name");
+    const year = params.get("year");
+    const month = params.get("month");
+    const day = params.get("day");
 
     // HTMLで表示する
-    name_output.textContent = `${name}さんの運勢`;
+    info_output.textContent = `${name}さんの運勢`;
+    //info_output.textContent
+    
   }
   window.addEventListener("DOMContentLoaded", function () {
-    $name_output();
+    $info_output();
   });
 })();
 // URLで遷移するときは, URLにパラメータをつけて遷移する方法しかない

@@ -83,11 +83,15 @@
       // trim()は、文字列の前後の空白を取り除くメソッド
       const name = document.getElementById("write_name").value.trim();
 
+      const year = select_year.value;
+      const month = select_month.value;
+      const day = select.year.value;
+
       if (name === "") {
         // ポップアップにアラートを表示
         alert("名前を入力してください");
       } else {
-        window.location.href = `result.html?name=${encodeURIComponent(name)}`;
+        window.location.href = `result.html?name=${encodeURIComponent(name)}&year=${year}&month=${month}&day=${day}`;
       }
     });
   }
