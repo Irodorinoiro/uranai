@@ -13,7 +13,7 @@
 
     // HTMLで表示する
     info_output.textContent = `${name}さんの運勢`;
-    //info_output.textContent
+    info_output.textContent += `${year}年${month}月${day}日生まれ`;
     
   }
   window.addEventListener("DOMContentLoaded", function () {
