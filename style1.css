@@ -2,3 +2,9 @@ body {
     font-family: 'Kaisei Decol', serif;
     font-size: 20px;
 }
+
+/* #はid属性にマッチする要素*/
+#info_output{
+    font-size: 20px;
+    white-space: pre-line; /*改行を有効にする*/
+}

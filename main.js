@@ -85,7 +85,7 @@
 
       const year = select_year.value;
       const month = select_month.value;
-      const day = select.year.value;
+      const day = select_day.value;
 
       if (name === "") {
         // ポップアップにアラートを表示
