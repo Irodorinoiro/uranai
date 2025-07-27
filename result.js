@@ -23,7 +23,7 @@ const day = parseInt( params.get("day"));
   }
 
   function $title_output(){
-    title_output.textContent = `${today_month}月${today_day}日の占い結果\n`;
+    title_output.textContent = `${today_month}月${today_day}日の結果\n`;
   }
   window.addEventListener("DOMContentLoaded", function () {
     $name_output();
