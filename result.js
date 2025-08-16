@@ -6,15 +6,17 @@ let today_info = today.getFullYear() + today_month + today_day;
 // URLのパラメータを取得する関数
 const params = new URLSearchParams(window.location.search);
 // パラメータからnameを取得
-const name = params.get("name");
-const year = parseInt(params.get("year"));
-const month = parseInt(params.get("month"));
-const day = parseInt( params.get("day"));
+let name = params.get("name");
+let year = parseInt(params.get("year"));
+let month = parseInt(params.get("month"));
+let day = parseInt( params.get("day"));
 
 (function () {
   "use strict";
   const name_output = document.getElementById("name_output");
   const title_output = document.getElementById("title_output");
+  const unsei_output = document.getElementById("unsei_output");
+
 
   function $name_output() {
     // HTMLで表示する
@@ -25,9 +27,23 @@ const day = parseInt( params.get("day"));
   function $title_output(){
     title_output.textContent = `${today_month}月${today_day}日の結果\n`;
   }
+
+  function $unsei_output(){
+    if ((today_info + year + month + day) % 3 === 0){
+      unsei_output.textContent = `大大大吉`;
+    }
+    else if ((today_info + year + month + day) % 3 === 1){
+      unsei_output.textContent = `大大吉`;
+    }
+    else if ((today_info + year + month + day) % 3 === 2){
+      unsei_output.textContent = `大吉`;
+    }
+}
+
   window.addEventListener("DOMContentLoaded", function () {
     $name_output();
     $title_output();
+    $unsei_output();
   });
 })();
 // URLで遷移するときは, URLにパラメータをつけて遷移する方法しかない
