@@ -9,9 +9,8 @@
 
   // 日付取得
   let today = new Date();
-  let today_month = today.getMonth() + 1;
-  let today_day = today.getDate();
-  let today_info = today.getFullYear() + today_month + today_day;
+  let todayMonth = today.getMonth() + 1;
+  let todayDay = today.getDate();
 
   // URLのパラメータを取得する関数
   const params = new URLSearchParams(window.location.search);
@@ -19,6 +18,7 @@
   let year = parseInt(params.get("year"));
   let month = parseInt(params.get("month"));
   let day = parseInt(params.get("day"));
+  let todayInfo = today.getFullYear() + todayMonth + todayDay + year + month + day;
 
   //関数定義
   function $name_output() {
@@ -28,15 +28,15 @@
   }
 
   function $title_output() {
-    title_output.textContent = `${today_month}月${today_day}日の結果\n`;
+    title_output.textContent = `${todayMonth}月${todayDay}日の結果\n`;
   }
 
   function $unsei_output() {
-    if ((today_info + year + month + day) % 3 === 0) {
+    if ((todayInfo + year + month + day) % 3 === 0) {
       unsei_output.textContent = `大大大吉`;
-    } else if ((today_info + year + month + day) % 3 === 1) {
+    } else if ((todayInfo + year + month + day) % 3 === 1) {
       unsei_output.textContent = `大大吉`;
-    } else if ((today_info + year + month + day) % 3 === 2) {
+    } else if ((todayInfo + year + month + day) % 3 === 2) {
       unsei_output.textContent = `大吉`;
     }
   }
@@ -50,8 +50,16 @@
       .then((text) => {
         // テキストを改行で分割して配列に変換
         // filter: 配列から条件に合う要素を抽出
+        const text1 = "今日はとても幸せなことが起こりそうな予感！";
+        const item = ["パソコン", "ぬいぐるみ", "ペン", "タンブラー"];
+
         const fortunes = text.split("\n").filter((line) => line.trim() !== ""); // 空行を除外
-        console.log(fortunes);
+        const itemIdx = todayInfo % item.length;
+        const luckyItem = item[itemIdx];
+        const replaceItem = text.replace("{luckyItem}", luckyItem);
+
+
+        console.log("itemIdx: ", itemIdx);
         let a = Math.floor(Math.random() * fortunes.length);
         console.log("数値: ", a);
         // Math.floor(): 小数点以下を切り捨てて整数に変換
@@ -59,10 +67,10 @@
         const fortune = fortunes[a];
         console.log(fortune); //占い文章
 
-        unsei_txt.textContent = fortune;
+        unsei_txt.textContent = text1 + replaceItem;
       })
       // エラーが発生した場合の処理
-      .catch((err) => console.error("読み込みエラー", err));
+      .catch((err) => console.error("運勢の文章を読み込む際にエラーが発生しました: ", err));
   }
 
   // ページ読み込み後に実行
@@ -75,4 +83,3 @@
 })();
 // URLで遷移するときは, URLにパラメータをつけて遷移する方法しかない
 // そのためparamsを使ってURLのパラメータを取得する
-// 型宣言は, constかletを使え
