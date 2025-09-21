@@ -2,10 +2,11 @@
   "use strict";
 
   // DOM要素を取得
-  const name_output = document.getElementById("name_output");
-  const title_output = document.getElementById("title_output");
-  const unsei_output = document.getElementById("unsei_output");
-  const unsei_txt = document.getElementById("unsei_txt");
+  const nameOutput = document.getElementById("nameOutput");
+  const titleOutput = document.getElementById("titleOutput");
+  const unseiOutput = document.getElementById("unseiOutput");
+  const unseiTxt = document.getElementById("unseiTxt");
+  const shosaiOutput = document.getElementById("shosaiOutput");
 
   // 日付取得
   let today = new Date();
@@ -18,30 +19,31 @@
   let year = parseInt(params.get("year"));
   let month = parseInt(params.get("month"));
   let day = parseInt(params.get("day"));
-  let todayInfo = today.getFullYear() + todayMonth + todayDay + year + month + day;
+  let todayInfo =
+    today.getFullYear() + todayMonth + todayDay + year + month + day;
 
   //関数定義
-  function $name_output() {
+  function $nameOutput() {
     // HTMLで表示する
-    name_output.textContent += `${name}さんの運勢\n`;
+    nameOutput.textContent += `${name}さんの運勢\n`;
     //name_output.textContent += `${year}年${month}月${day}日生まれ`;
   }
 
-  function $title_output() {
-    title_output.textContent = `${todayMonth}月${todayDay}日の結果\n`;
+  function $titleOutput() {
+    titleOutput.textContent = `${todayMonth}月${todayDay}日の結果\n`;
   }
 
-  function $unsei_output() {
+  function $unseiOutput() {
     if ((todayInfo + year + month + day) % 3 === 0) {
-      unsei_output.textContent = `大大大吉`;
+      unseiOutput.textContent = `大大大吉`;
     } else if ((todayInfo + year + month + day) % 3 === 1) {
-      unsei_output.textContent = `大大吉`;
+      unseiOutput.textContent = `大大吉`;
     } else if ((todayInfo + year + month + day) % 3 === 2) {
-      unsei_output.textContent = `大吉`;
+      unseiOutput.textContent = `大吉`;
     }
   }
 
-  function $unsei_txt() {
+  function $unseiTxt() {
     // 非同期でテキストファイルを読み込む
     fetch("unsei.txt")
       //成功したらresponseを受け取り, テキストとして取得する
@@ -58,7 +60,6 @@
         const luckyItem = item[itemIdx];
         const replaceItem = text.replace("{luckyItem}", luckyItem);
 
-
         console.log("itemIdx: ", itemIdx);
         let a = Math.floor(Math.random() * fortunes.length);
         console.log("数値: ", a);
@@ -67,18 +68,40 @@
         const fortune = fortunes[a];
         console.log(fortune); //占い文章
 
-        unsei_txt.textContent = text1 + replaceItem;
+        unseiTxt.textContent = text1 + replaceItem;
       })
       // エラーが発生した場合の処理
-      .catch((err) => console.error("運勢の文章を読み込む際にエラーが発生しました: ", err));
+      .catch((err) =>
+        console.error("運勢の文章を読み込む際にエラーが発生しました: ", err)
+      );
+  }
+
+  function $shosaiOutput() {
+    let i;
+    const text1 = "総合運";
+    const sogoIdx = (todayInfo % 2) + 4;
+    let star = "";
+
+    for (i = 0; i < sogoIdx; ++i) {
+      star += "★";
+    }
+    for (i = 0; i < 5 - sogoIdx; ++i) {
+      star += "☆";
+    }
+    try {
+      shosaiOutput.textContent = text1 + star;
+    } catch (error) {
+      console.error("総合運の出力中にエラーが発生しました", error);
+    }
   }
 
   // ページ読み込み後に実行
   window.addEventListener("DOMContentLoaded", function () {
-    $name_output();
-    $title_output();
-    $unsei_output();
-    $unsei_txt();
+    $nameOutput();
+    $titleOutput();
+    $unseiOutput();
+    $unseiTxt();
+    $shosaiOutput();
   });
 })();
 // URLで遷移するときは, URLにパラメータをつけて遷移する方法しかない
