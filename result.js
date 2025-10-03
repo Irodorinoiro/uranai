@@ -88,11 +88,17 @@
     for (i = 0; i < 5 - sogoIdx; ++i) {
       star += "☆";
     }
-    try {
-      shosaiOutput.textContent = text1 + star;
-    } catch (error) {
-      console.error("総合運の出力中にエラーが発生しました", error);
-    }
+    fetch("shosai.txt")
+      .then((response) => response.text())
+      .then((text) => {
+        const sogo = text.split("\n").filter((line) => line.trim() !== "");
+        shosaiOutput.innerHTML = text1 + star + "<br>" + sogo.join("<br>");
+      })
+      .catch((err) =>
+        console.error("運勢5段階評価の読み取り時にエラーが発生しました:", err)
+      );
+    console.log("五段階よみこみ");
+
   }
 
   // ページ読み込み後に実行
@@ -106,3 +112,4 @@
 })();
 // URLで遷移するときは, URLにパラメータをつけて遷移する方法しかない
 // そのためparamsを使ってURLのパラメータを取得する
+
