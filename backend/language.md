@@ -1,5 +1,5 @@
 |目的|技術|
-|----|----|
+| ---- | ---- |
 |バックエンド|Express.js（Node.jsフレームワーク）|
 |DB|SQLite or Supabase|
 |パスワード暗号化|bcryptjs|
