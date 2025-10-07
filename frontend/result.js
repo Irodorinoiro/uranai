@@ -97,7 +97,6 @@
       .catch((err) =>
         console.error("運勢5段階評価の読み取り時にエラーが発生しました:", err)
       );
-    console.log("五段階よみこみ");
 
   }
 
