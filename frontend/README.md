@@ -4,11 +4,11 @@
 - JSの勉強のためにも制作しているため，コメントアウト多めです
 
 <h3>使用技術</h3>
-| 目的 | 技術 | 実装状況 |
-|------|------|----------|
-| バックエンド | Express.js（Node.jsフレームワーク） | これから |
-| DB | SQLite or Supabase | これから |
-| パスワード暗号化 | bcryptjs | これから |
-| ログイン用トークン | jsonwebtoken (JWT) | これから |
-| デプロイ | Render / Vercel / Railway | これから |
-| フロントエンド | JS / HTML / CSS | 最低限は完成 |
+| 目的             | 技術                       | 実装状況          |
+|-----------------|---------------------------|-----------------|
+| バックエンド     | Express.js (Node.js)       | これから         |
+| DB              | SQLite or Supabase         | これから         |
+| パスワード暗号化 | bcryptjs                   | これから         |
+| ログイン用トークン | jsonwebtoken (JWT)        | これから         |
+| デプロイ         | Render / Vercel / Railway | これから         |
+| フロントエンド   | JS / HTML / CSS            | 最低限は完成     |
